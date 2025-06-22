@@ -4,6 +4,9 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
+// ✅ Preload the model before component rendering
+useGLTF.preload("/planet/planet_model.gltf");
+
 const Earth = () => {
   const earth = useGLTF("/planet/planet_model.gltf");
 
@@ -16,7 +19,7 @@ const EarthCanvas = () => {
   return (
     <Canvas
       shadows
-      frameloop='demand'
+      frameloop="demand"
       dpr={[1, 2]}
       gl={{ preserveDrawingBuffer: true }}
       camera={{
@@ -34,7 +37,6 @@ const EarthCanvas = () => {
           minPolarAngle={Math.PI / 2}
         />
         <Earth />
-
         <Preload all />
       </Suspense>
     </Canvas>
