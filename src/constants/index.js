@@ -34,6 +34,7 @@ Styletech,
   cash,
   sensiview1,
   chat,
+  About,
 } from "../assets";
 
 export const navLinks = [
@@ -131,7 +132,7 @@ const experiences = [
     company_name: "Fiver",
     icon: Fiverr,
     iconBg: "#383E56",
-    date: "Jan 2023 - july 2025",
+    date: "Jan 2024",
     points: [
       "Developing and maintaining web applications using React.js and other related technologies.",
       "Collaborating with clinets form all accross the world developing scaleable web applications .",
@@ -172,7 +173,7 @@ const experiences = [
     company_name: "Freelance/Portfolio Projects",
     icon: Fiverr,
     iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
+    date: "Aug 2024",
     points: [
       "Developed responsive, component-based UIs using React, Tailwind CSS, and Vite.",
       "Integrated third-party libraries such as Email.js, Framer Motion, and Lucide React.",
