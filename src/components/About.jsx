@@ -46,7 +46,7 @@ const About = () => {
       <div className='mt-4 flex flex-col sm:flex-row items-start gap-6'>
         <motion.img
           variants={fadeIn("", "", 0.1, 1)}
-          src="public/About.jpg" // Replace with your image path
+          src="/About.jpg" 
           alt="Profile"
           className='w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover'
         />
