@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useGLTF } from "@react-three/drei";
+useGLTF.preload("/desktop_pc/desktop_model.gltf"); // ✅ Preload early
 
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
