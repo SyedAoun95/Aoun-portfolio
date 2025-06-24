@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
-
+import StarsCanvas from "./canvas/Stars"; // ✅ Import StarsCanvas
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-screen mx-auto bg-hero-pattern bg-cover bg-no-repeat bg-center flex flex-col items-center justify-center text-center px-4">
+    <section className="relative w-full h-screen mx-auto flex flex-col items-center justify-center text-center px-4 overflow-hidden">
+      {/* ✅ Stars Background */}
+      <StarsCanvas />
+
       {/* Profile Image */}
-      <div className="w-40 h-40 rounded-full border-4 border-[#915EFF] p-1 mb-6">
+      <div className="z-10 w-40 h-40 rounded-full border-4 border-[#915EFF] p-1 mb-6">
         <img
           src="https://randomuser.me/api/portraits/men/75.jpg" // 🔄 Replace with your own image later
           alt="profile"
@@ -15,23 +18,23 @@ const Hero = () => {
       </div>
 
       {/* Name */}
-      <h1 className="text-white text-4xl sm:text-5xl font-bold mb-2">
+      <h1 className="z-10 text-white text-4xl sm:text-5xl font-bold mb-2">
         Syed <span className="text-[#915EFF]">Aoun Naqvi</span>
       </h1>
 
       {/* Subtitle */}
-      <p className="text-white-100 text-lg sm:text-xl mb-4">
+      <p className="z-10 text-white-100 text-lg sm:text-xl mb-4">
         Passionate Python Developer & AI Specialist
       </p>
 
       {/* Description */}
-      <p className="text-gray-300 max-w-2xl text-sm sm:text-base mb-8">
+      <p className="z-10 text-gray-300 max-w-2xl text-sm sm:text-base mb-8">
         Expert in building AI solutions, machine learning models, and smart IoT systems that solve real business
         problems. Experienced in turning complex data into valuable insights through innovative AI tools.
       </p>
 
       {/* Buttons */}
-      <div className="flex flex-col sm:flex-row gap-4">
+      <div className="z-10 flex flex-col sm:flex-row gap-4">
         <a href="#work">
           <button className="bg-[#915EFF] hover:bg-purple-600 text-white font-semibold py-2 px-6 rounded shadow">
             View My Work
@@ -45,7 +48,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll animation */}
-      <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
+      <div className="z-10 absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
         <a href="#about">
           <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2 mt-4">
             <motion.div
