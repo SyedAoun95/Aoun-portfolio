@@ -41,6 +41,7 @@ import Seat from "./Seat.png"
 import cash from "./cash.jpg"
 import sensiview1 from "./sensiview1.png"
 import chat from "./chat.png"
+import About from "./About.jpg"
 
 
 
@@ -85,4 +86,5 @@ Seat,
 cash,
 sensiview1,
  chat,
+ About,
 };
