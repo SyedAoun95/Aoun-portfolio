@@ -1,48 +1,48 @@
 import { motion } from "framer-motion";
-import { useGLTF } from "@react-three/drei";
-useGLTF.preload("/desktop_pc/desktop_model.gltf"); // Optional now since 3D model is removed
-
 import { styles } from "../styles";
+import profileImg from "public/About.jpg"; 
+
+// ✅ Replace with the correct path to your image
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-screen mx-auto">
-      <div
-        className={`absolute inset-0 top-[120px] max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
-      >
-        <div className="flex flex-col justify-center items-center mt-5">
-          <div className="w-5 h-5 rounded-full bg-[#915EFF]" />
-          <div className="w-1 sm:h-80 h-40 violet-gradient" />
-        </div>
-
-        <div>
-          <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className="text-[#915EFF]">Aoun Naqvi</span>
-          </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I develop 3D visuals, user <br className="sm:block hidden" />
-            interfaces and web applications
-          </p>
-        </div>
+    <section className="relative w-full h-screen flex flex-col items-center justify-center text-center px-4 bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e]">
+      {/* Profile Image */}
+      <div className="w-40 h-40 rounded-full border-4 border-blue-400 p-1 mb-6">
+        <img
+          src={profileImg}
+          alt="profile"
+          className="w-full h-full object-cover rounded-full"
+        />
       </div>
 
-      {/* 3D Canvas removed */}
+      {/* Name */}
+      <h1 className="text-white text-4xl sm:text-5xl font-bold mb-2">
+        Muhammad <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">Anique</span>
+      </h1>
 
-      <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
-        <a href="#about">
-          <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
-            <motion.div
-              animate={{
-                y: [0, 24, 0],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              className="w-3 h-3 rounded-full bg-secondary mb-1"
-            />
-          </div>
+      {/* Subtitle */}
+      <p className="text-gray-300 text-lg sm:text-xl mb-4">
+        Passionate Python Developer & AI Specialist
+      </p>
+
+      {/* Description */}
+      <p className="text-gray-400 max-w-2xl text-sm sm:text-base mb-8">
+        Expert in building AI solutions, machine learning models, and smart IoT systems that solve real business problems.
+        Experienced in turning complex data into valuable insights through innovative AI tools.
+      </p>
+
+      {/* Buttons */}
+      <div className="flex flex-col sm:flex-row gap-4">
+        <a href="#work">
+          <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded shadow">
+            View My Work
+          </button>
+        </a>
+        <a href="#contact">
+          <button className="bg-white hover:bg-gray-200 text-gray-800 font-semibold py-2 px-6 rounded shadow">
+            Get In Touch
+          </button>
         </a>
       </div>
     </section>
