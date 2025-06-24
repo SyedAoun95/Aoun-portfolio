@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 
+
 const Hero = () => {
   return (
     <section className="relative w-full h-screen mx-auto bg-hero-pattern bg-cover bg-no-repeat bg-center flex flex-col items-center justify-center text-center px-4">
@@ -15,7 +16,7 @@ const Hero = () => {
 
       {/* Name */}
       <h1 className="text-white text-4xl sm:text-5xl font-bold mb-2">
-        Muhammad <span className="text-[#915EFF]">Anique</span>
+        Syed <span className="text-[#915EFF]">Aoun Naqvi</span>
       </h1>
 
       {/* Subtitle */}
