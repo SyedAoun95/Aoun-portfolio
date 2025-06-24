@@ -1,8 +1,5 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
-import profileImg from "public/About.jpg"; 
-
-// ✅ Replace with the correct path to your image
 
 const Hero = () => {
   return (
@@ -10,7 +7,7 @@ const Hero = () => {
       {/* Profile Image */}
       <div className="w-40 h-40 rounded-full border-4 border-blue-400 p-1 mb-6">
         <img
-          src={profileImg}
+          src="https://randomuser.me/api/portraits/men/75.jpg" // 🔄 Replace with your image latera
           alt="profile"
           className="w-full h-full object-cover rounded-full"
         />
