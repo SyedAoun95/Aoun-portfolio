@@ -5,27 +5,27 @@ import About from "../assets/About.jpg"; // ✅ Correct relative path
 const Hero = () => {
   return (
     <section className="relative w-full h-screen mx-auto flex flex-col items-center justify-center text-center px-4 overflow-hidden">
-      {/* Profile Image */}
-      <div className="z-10 w-40 h-40 rounded-full border-4 border-[#915EFF] p-1 mb-6">
+      {/* Profile Image with glow */}
+      <div className="z-10 w-52 h-52 rounded-full border-4 border-[#915EFF] p-1 mb-6 animate-pulse drop-shadow-[0_0_20px_rgba(145,94,255,0.8)]">
         <img
-          src={About} // ✅ Use imported image here
+          src={About}
           alt="profile"
           className="w-full h-full object-cover rounded-full"
         />
       </div>
 
       {/* Name */}
-      <h1 className="z-10 text-white text-4xl sm:text-5xl font-bold mb-2">
+      <h1 className="z-10 text-white text-5xl sm:text-6xl font-bold mb-2">
         Syed <span className="text-[#915EFF]">Aoun Naqvi</span>
       </h1>
 
       {/* Subtitle */}
-      <p className="z-10 text-white-100 text-lg sm:text-xl mb-4">
-        Passionate Python Developer & AI Specialist
+      <p className="z-10 text-white-100 text-xl sm:text-2xl mb-4">
+        Passionate Web Developer & React Enthusiast
       </p>
 
       {/* Description */}
-      <p className="z-10 text-gray-300 max-w-2xl text-sm sm:text-base mb-8">
+      <p className="z-10 text-gray-300 max-w-2xl text-base sm:text-lg mb-8">
         Expert in building AI solutions, machine learning models, and smart IoT systems that solve real business
         problems. Experienced in turning complex data into valuable insights through innovative AI tools.
       </p>
