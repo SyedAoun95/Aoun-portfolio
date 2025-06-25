@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section className="relative w-full h-screen mx-auto flex flex-col items-center justify-center text-center px-4 overflow-hidden">
       {/* Profile Image with glow */}
-      <div className="z-10 w-52 h-52 rounded-full border-4 border-[#915EFF] p-1 mb-6 animate-pulse drop-shadow-[0_0_20px_rgba(145,94,255,0.8)]">
+      <div className="z-10 w-52 h-52 rounded-full border-4 border-[#915EFF] p-1 mb-6 ">
         <img
           src={About}
           alt="profile"
