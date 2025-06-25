@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 
+
 const Hero = () => {
   return (
     <section className="relative w-full h-screen mx-auto flex flex-col items-center justify-center text-center px-4 overflow-hidden">
       {/* Profile Image */}
       <div className="z-10 w-40 h-40 rounded-full border-4 border-[#915EFF] p-1 mb-6">
         <img
-          src="https://randomuser.me/api/portraits/men/75.jpg" // 🔄 Replace with your own image later
+          src="public/About.jpg" // 🔄 Replace with your own image later
           alt="profile"
           className="w-full h-full object-cover rounded-full"
         />
