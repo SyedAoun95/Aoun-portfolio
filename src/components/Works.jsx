@@ -19,11 +19,14 @@ const ProjectCard = ({
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
-    setIsMobile(mediaQuery.matches);
-    const handler = (e) => setIsMobile(e.matches);
-    mediaQuery.addEventListener("change", handler);
-    return () => mediaQuery.removeEventListener("change", handler);
+    // ✅ More reliable mobile check
+    const checkMobile = () => window.innerWidth <= 768;
+    setIsMobile(checkMobile());
+
+    const handleResize = () => setIsMobile(checkMobile());
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const cardContent = (
@@ -91,15 +94,11 @@ const Works = () => (
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
       >
-        Following projects showcase my skills and experience through
-        real-world examples of my work. Each project is briefly described with
-        links to code repositories and live demos. It reflects my ability to
-        solve complex problems, work with different technologies, and manage
-        projects effectively.
+        Following projects showcase my skills and experience through real-world examples of my work. Each project is briefly described with links to code repositories and live demos. It reflects my ability to solve complex problems, work with different technologies, and manage projects effectively.
       </motion.p>
     </div>
 
-    <div className="mt-20 flex flex-wrap gap-7">
+    <div className="mt-20 flex flex-wrap gap-7 justify-center items-center">
       {projects.map((proj, idx) => (
         <ProjectCard key={`project-${idx}`} index={idx} {...proj} />
       ))}
