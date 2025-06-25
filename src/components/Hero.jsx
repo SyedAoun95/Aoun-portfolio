@@ -1,13 +1,9 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
-import StarsCanvas from "./canvas/Stars"; // ✅ Import StarsCanvas
 
 const Hero = () => {
   return (
     <section className="relative w-full h-screen mx-auto flex flex-col items-center justify-center text-center px-4 overflow-hidden">
-      {/* ✅ Stars Background */}
-      <StarsCanvas />
-
       {/* Profile Image */}
       <div className="z-10 w-40 h-40 rounded-full border-4 border-[#915EFF] p-1 mb-6">
         <img
