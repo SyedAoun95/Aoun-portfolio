@@ -21,13 +21,12 @@ const Hero = () => {
 
       {/* Subtitle */}
       <p className="z-10 text-white-100 text-xl sm:text-2xl mb-4">
-        Passionate Web Developer & React Enthusiast
+      Professional Web Developer | React & Cross-Platform Apps Expert
       </p>
 
       {/* Description */}
       <p className="z-10 text-gray-300 max-w-2xl text-base sm:text-lg mb-8">
-        Expert in building AI solutions, machine learning models, and smart IoT systems that solve real business
-        problems. Experienced in turning complex data into valuable insights through innovative AI tools.
+       Full-stack web and React Native app developer with expertise in AI and computer vision, skilled at building and integrating real-time intelligent systems that solve real-world problems.
       </p>
 
       {/* Buttons */}
