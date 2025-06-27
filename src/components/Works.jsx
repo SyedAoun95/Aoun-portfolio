@@ -1,4 +1,5 @@
 import React from "react";
+import { github } from "../assets"; // ✅ Make sure this import is correct
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
@@ -22,12 +23,16 @@ const ProjectCardSafe = (props) => {
             className="w-full h-full object-cover rounded-2xl"
           />
           <div className="absolute inset-0 flex justify-end p-3">
-            <button
+            <div
               onClick={() => window.open(source_code_link, "_blank")}
-              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center"
+              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
             >
-              View
-            </button>
+              <img
+                src={github}
+                alt="source code"
+                className="w-1/2 h-1/2 object-contain"
+              />
+            </div>
           </div>
         </div>
         <h3 className="text-white font-bold text-[24px] mt-5">{name}</h3>
@@ -64,4 +69,3 @@ const Works = () => (
 );
 
 export default SectionWrapper(Works, "");
-
