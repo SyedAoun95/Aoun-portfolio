@@ -1,68 +1,121 @@
-import React from "react";
-import { github } from "../assets"; // ✅ Make sure this import is correct
+import React, { useEffect, useState } from "react";
+import Tilt from "react-tilt";
+import { motion } from "framer-motion";
+
 import { styles } from "../styles";
+import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
+import { fadeIn, textVariant } from "../utils/motion";
 
 const fallbackImage = "https://via.placeholder.com/300?text=Image+Unavailable";
 
-const ProjectCardSafe = (props) => {
-  try {
-    const { name, description, tags, image, source_code_link } = props;
+const ProjectCard = ({
+  index,
+  name,
+  description,
+  tags,
+  image,
+  source_code_link,
+}) => {
+  const [isMobile, setIsMobile] = useState(false);
 
-    return (
-      <div className="bg-tertiary p-5 rounded-2xl w-full max-w-[360px]">
-        <div className="relative w-full h-[230px]">
-          <img
-            src={image || fallbackImage}
-            alt={name}
-            onError={(e) => {
-              e.target.onerror = null;
-              e.target.src = fallbackImage;
-            }}
-            className="w-full h-full object-cover rounded-2xl"
-          />
-          <div className="absolute inset-0 flex justify-end p-3">
-            <div
-              onClick={() => window.open(source_code_link, "_blank")}
-              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
-            >
-              <img
-                src={github}
-                alt="source code"
-                className="w-1/2 h-1/2 object-contain"
-              />
-            </div>
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+
+    const handler = (e) => setIsMobile(e.matches);
+    mediaQuery.addEventListener("change", handler);
+
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
+
+  const cardContent = (
+    <>
+      <div className="relative w-full h-[230px]">
+        <img
+          src={image || fallbackImage}
+          alt={name}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = fallbackImage;
+          }}
+          className="w-full h-full object-cover rounded-2xl"
+        />
+        <div className="absolute inset-0 flex justify-end p-3">
+          <div
+            onClick={() => window.open(source_code_link, "_blank")}
+            className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+          >
+            <img
+              src={github}
+              alt="source code"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = "https://via.placeholder.com/20?text=GH"; // fallback GitHub icon text
+              }}
+              className="w-1/2 h-1/2 object-contain"
+            />
           </div>
         </div>
-        <h3 className="text-white font-bold text-[24px] mt-5">{name}</h3>
-        <p className="mt-2 text-secondary text-[14px]">{description}</p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <span key={`${name}-${tag.name}`} className={`text-[14px] ${tag.color}`}>
-              #{tag.name}
-            </span>
-          ))}
-        </div>
       </div>
-    );
-  } catch (err) {
-    console.error("ProjectCard render error:", err);
-    return null;
-  }
+
+      <div className="mt-5">
+        <h3 className="text-white font-bold text-[24px]">{name}</h3>
+        <p className="mt-2 text-secondary text-[14px]">{description}</p>
+      </div>
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <p
+            key={`${name}-${tag.name}`}
+            className={`text-[14px] ${tag.color}`}
+          >
+            #{tag.name}
+          </p>
+        ))}
+      </div>
+    </>
+  );
+
+  return (
+    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+      {isMobile ? (
+        <div className="bg-tertiary p-5 rounded-2xl w-full max-w-[360px]">
+          {cardContent}
+        </div>
+      ) : (
+        <Tilt
+          options={{ max: 45, scale: 1, speed: 450 }}
+          className="bg-tertiary p-5 rounded-2xl w-full max-w-[360px]"
+        >
+          {cardContent}
+        </Tilt>
+      )}
+    </motion.div>
+  );
 };
 
 const Works = () => (
   <>
-    <h2 className={`${styles.sectionHeadText} text-white`}>Projects</h2>
+    <motion.div variants={textVariant()}>
+      <p className={styles.sectionSubText}>My work</p>
+      <h2 className={styles.sectionHeadText}>Projects.</h2>
+    </motion.div>
 
-    <div className="mt-5 text-secondary text-[17px] max-w-3xl leading-[30px]">
-      Following projects show my skills.
+    <div className="w-full flex">
+      <motion.p
+        variants={fadeIn("", "", 0.1, 1)}
+        className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
+      >
+        Following projects showcase my skills and experience through real-world
+        examples. Each project includes code links and live demos.
+      </motion.p>
     </div>
 
-    <div className="mt-10 flex flex-wrap gap-7 justify-center">
+    <div className="mt-20 flex flex-wrap gap-7 justify-center">
       {projects.map((proj, idx) => (
-        <ProjectCardSafe key={idx} {...proj} />
+        <ProjectCard key={`project-${idx}`} index={idx} {...proj} />
       ))}
     </div>
   </>
