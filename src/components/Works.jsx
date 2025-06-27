@@ -71,7 +71,11 @@ const Works = () => (
     <h2 className={`${styles.sectionHeadText} text-white`}>Projects</h2>
 
     <div className="mt-5 text-secondary text-[17px] max-w-3xl leading-[30px]">
-      Following projects show my skills.
+ Following projects showcase my skills and experience through real-world
+        examples of my work. Each project is briefly described with links to
+        code repositories and live demos. It reflects my ability to solve
+        complex problems, work with different technologies, and manage projects
+        effectively.
     </div>
 
     <div className="mt-10 flex flex-wrap gap-7 justify-center">
