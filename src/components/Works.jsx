@@ -1,16 +1,33 @@
 import React from "react";
-import { github } from "../assets"; // ✅ Make sure this import is correct
+import { motion } from "framer-motion";
+import { github } from "../assets"; // ✅ Ensure this path is correct
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 
+// Motion helper
+const fadeIn = (delay = 0) => ({
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+      delay,
+    },
+  },
+});
+
 const fallbackImage = "https://via.placeholder.com/300?text=Image+Unavailable";
 
-const ProjectCardSafe = (props) => {
-  try {
-    const { name, description, tags, image, source_code_link } = props;
-
-    return (
+const ProjectCardSafe = ({ name, description, tags, image, source_code_link, index }) => {
+  return (
+    <motion.div
+      variants={fadeIn(index * 0.2)} // Staggered by index
+      initial="hidden"
+      animate="visible"
+    >
       <div className="bg-tertiary p-5 rounded-2xl w-full max-w-[360px]">
         <div className="relative w-full h-[230px]">
           <img
@@ -45,11 +62,8 @@ const ProjectCardSafe = (props) => {
           ))}
         </div>
       </div>
-    );
-  } catch (err) {
-    console.error("ProjectCard render error:", err);
-    return null;
-  }
+    </motion.div>
+  );
 };
 
 const Works = () => (
@@ -62,7 +76,7 @@ const Works = () => (
 
     <div className="mt-10 flex flex-wrap gap-7 justify-center">
       {projects.map((proj, idx) => (
-        <ProjectCardSafe key={idx} {...proj} />
+        <ProjectCardSafe key={idx} {...proj} index={idx} />
       ))}
     </div>
   </>
