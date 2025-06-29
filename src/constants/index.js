@@ -276,7 +276,7 @@ const projects = [
       },
     ],
     image: Deepfake,
-    source_code_link: "https://github.com/SyedAoun95?tab=repositories",
+    source_code_link: "https://deep-fake-image-detection-web.vercel.app/",
   },
   {
     name: "Sensiview_computer vsision",
