@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section className="relative w-full h-screen mx-auto flex flex-col items-center justify-center text-center px-4 overflow-hidden">
       {/* Profile Image with glow */}
-      <div className="z-10 w-52 h-52 rounded-full border-4 border-[#915EFF] p-1 mb-6 ">
+      <div className="z-10 w-52 h-52 rounded-full border-4 border-[#915EFF] p-1 mb-6">
         <img
           src={About}
           alt="profile"
@@ -21,19 +21,23 @@ const Hero = () => {
 
       {/* Subtitle */}
       <p className="z-10 text-white-100 text-xl sm:text-2xl mb-4">
-      Professional Web Developer | React & Cross-Platform Apps Expert
+        Professional Web Developer | React & Cross-Platform Apps Expert
       </p>
 
       {/* Description */}
       <p className="z-10 text-gray-300 max-w-2xl text-base sm:text-lg mb-8">
-       Full-stack web and React Native app developer with expertise in AI and computer vision, skilled at building and integrating real-time intelligent systems that solve real-world problems.
+        Full-stack web and React Native app developer with expertise in AI and computer vision, skilled at building and integrating real-time intelligent systems that solve real-world problems.
       </p>
 
       {/* Buttons */}
       <div className="z-10 flex flex-col sm:flex-row gap-4">
-        <a href="#work">
+        <a 
+          href="https://drive.google.com/uc?export=download&id=1abjyvyJ61YMfQ6gi9YoM3aVQVNKk7XVb" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
           <button className="bg-[#915EFF] hover:bg-purple-600 text-white font-semibold py-2 px-6 rounded shadow">
-            View My Work
+            Download CV
           </button>
         </a>
         <a href="#contact">
