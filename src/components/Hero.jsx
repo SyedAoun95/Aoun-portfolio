@@ -32,7 +32,7 @@ const Hero = () => {
       {/* Buttons */}
       <div className="z-10 flex flex-col sm:flex-row gap-4">
         <a 
-          href="https://drive.google.com/uc?export=download&id=1abjyvyJ61YMfQ6gi9YoM3aVQVNKk7XVb" 
+          href="https://drive.google.com/file/d/1pWQGoyL_Ij9WRKSAwtEVXNnN6B2mzYAl/view?usp=sharing" 
           target="_blank" 
           rel="noopener noreferrer"
         >
